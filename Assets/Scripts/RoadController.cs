@@ -22,13 +22,18 @@ public class RoadController : MonoBehaviour {
 	void Start () {
 		_transform = gameObject.GetComponent<Transform> ();
 		_currentPosition = _transform.position;
-
+		Reset ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		_currentPosition = _transform.position;
 		_currentPosition -= new Vector2 (speed, 0);
+		if (_currentPosition.x < endX)
+			Reset ();
 		_transform.position = _currentPosition;
+	}
+	void Reset(){
+		_currentPosition = new Vector2 (startX ,0);
 	}
 }
