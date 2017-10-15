@@ -31,7 +31,7 @@ public class CarController : MonoBehaviour {
 		}
 		
 	}
-	void Reset()
+	public void Reset()
 	{
 		float xSpeed = Random.Range (minXspeed, maxXspeed);
 		float ySpeed = Random.Range (minYspeed, maxYspeed);

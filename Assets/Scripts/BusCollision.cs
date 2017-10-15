@@ -15,8 +15,10 @@ public class BusCollision : MonoBehaviour {
 	}
 	public void OnTriggerEnter2D(Collider2D other)
 	{
+		Debug.Log("Collision Detected");
 		if (other.gameObject.tag.Equals ("car")) {
 			Debug.Log("good stuff");
 		}
+		other.gameObject.GetComponent<CarController> ().Reset ();
 	}
 }
