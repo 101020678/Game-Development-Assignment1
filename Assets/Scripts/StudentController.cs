@@ -13,4 +13,7 @@ public class StudentController : MonoBehaviour {
 	void Update () {
 		
 	}
+	public void PlaySound(){
+		gameObject.GetComponent<AudioSource> ().Play ();
+	}
 }

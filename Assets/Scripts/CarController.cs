@@ -29,15 +29,16 @@ public class CarController : MonoBehaviour {
 		if(_currenPosition.x<= -940){
 			Reset ();
 		}
-		
 	}
 	public void Reset()
 	{
 		float xSpeed = Random.Range (minXspeed, maxXspeed);
 		float ySpeed = Random.Range (minYspeed, maxYspeed);
-
 		_currenSpeed = new Vector2 (xSpeed,ySpeed);
 		float y = Random.Range (-228,228);
 		_trasnsform.position = new Vector2 (939 + Random.Range (0, 100), y);
+	}
+	public void PlaySound(){
+		gameObject.GetComponent<AudioSource> ().Play ();
 	}
 }
