@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour {
 	private int _life = 3;
 	private int _score = 0;
 	private int _highScore =0;
+	public static bool gameOverStatus=false;
 	public int Score{
 		get{ return _score;}
 		set
@@ -59,9 +60,11 @@ public class GameController : MonoBehaviour {
 
 		lifeLabel.gameObject.SetActive (false);
 		scoreLabel.gameObject.SetActive (false);
+		gameOverStatus = true;
 	}
 	public void ResetBtnClick(){
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		gameOverStatus = false;
 	}
 	private IEnumerator AddCar(){
 		if (carCounter < 6) {

@@ -24,11 +24,13 @@ public class StudentController : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		_currentPosition = _transform.position;
-		_currentPosition -= new Vector2 (speed, 0);
-		if (_currentPosition.x < endX)
-			Reset ();
-		_transform.position = _currentPosition;
+		if (!GameController.gameOverStatus) {
+			_currentPosition = _transform.position;
+			_currentPosition -= new Vector2 (speed, 0);
+			if (_currentPosition.x < endX)
+				Reset ();
+			_transform.position = _currentPosition;
+		}
 	}
 	public void Reset(){
 		currentRndY = randomYcreator ();
