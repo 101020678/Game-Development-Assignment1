@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BusCollision : MonoBehaviour {
-	
+	[SerializeField]
+	GameController gameContoler;
 	// Use this for initialization
 	void Start () {
 
@@ -22,9 +23,12 @@ public class BusCollision : MonoBehaviour {
 			other.gameObject.GetComponent<CarController> ().Reset ();
 			other.gameObject.GetComponent<CarController> ().PlaySound ();
 			StartCoroutine( "Blink");
+			gameContoler.Life--;
 		} else if (other.gameObject.tag.Equals ("student")) {
 			Debug.Log ("Collision Detected");
 			other.gameObject.GetComponent<CarController> ().PlaySound ();
+
+			gameContoler.Score += 100;
 		}
 	}
 	private IEnumerator Blink(){
