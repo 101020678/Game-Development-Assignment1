@@ -32,14 +32,17 @@ public class StudentController : MonoBehaviour {
 			_transform.position = _currentPosition;
 		}
 	}
+	//reset the position for students 
 	public void Reset(){
 		currentRndY = randomYcreator ();
 		_currentPosition = new Vector2 (startX ,currentRndY);
 		_transform.position = _currentPosition;
 	}
+	//this creates a random Y to add students in random location
 	public float randomYcreator(){
 		return Random.Range (-160,291);
 	}
+	//play sound for collision with studensts
 	public void PlaySound(){
 		gameObject.GetComponent<AudioSource> ().Play ();
 	}

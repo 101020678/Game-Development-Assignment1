@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
+	//This car object has created to produce more 
 	[SerializeField]
 	GameObject car;
+	//Labls and reset button for game over 
 	[SerializeField]
 	Text lifeLabel;
 	[SerializeField]
@@ -16,6 +18,7 @@ public class GameController : MonoBehaviour {
 	Text highScoreLabel;
 	[SerializeField]
 	Button resetBtn;
+	//variables to track user
 	private int carCounter=0;
 	private int _life = 3;
 	private int _score = 0;
@@ -42,7 +45,7 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
-
+	//called at the game start up 
 	private void initialize(){
 		Score = 0;
 		Life = 3;
@@ -53,6 +56,7 @@ public class GameController : MonoBehaviour {
 		scoreLabel.gameObject.SetActive (true);
 		StartCoroutine ("AddCar");
 	}
+	//called when game over
 	public void gameOver(){
 		gameOverLabel.gameObject.SetActive (true);
 		highScoreLabel.gameObject.SetActive (true);
@@ -62,10 +66,12 @@ public class GameController : MonoBehaviour {
 		scoreLabel.gameObject.SetActive (false);
 		gameOverStatus = true;
 	}
+	//reset button event
 	public void ResetBtnClick(){
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		gameOverStatus = false;
 	}
+	//add more cars 
 	private IEnumerator AddCar(){
 		if (carCounter < 6) {
 			int time = 10;

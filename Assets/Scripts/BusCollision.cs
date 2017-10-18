@@ -15,12 +15,14 @@ public class BusCollision : MonoBehaviour {
 	void Update () {
 		
 	}
+	//This method called when bus is collid with other objects 
 	public void OnTriggerEnter2D (Collider2D other)
 	{
-		//Debug.Log ("Collision Detected");
+
 		if (other.gameObject.tag.Equals ("car")) {
-			//Debug.Log ("good stuff");
+			//reset position of car
 			other.gameObject.GetComponent<CarController> ().Reset ();
+			//play sound of colliosn
 			other.gameObject.GetComponent<CarController> ().PlaySound ();
 			StartCoroutine( "Blink");
 			gameContoler.Life--;
@@ -31,6 +33,7 @@ public class BusCollision : MonoBehaviour {
 			gameContoler.Score += 100;
 		}
 	}
+	//make the bus to blink 
 	private IEnumerator Blink(){
 
 		Color c;

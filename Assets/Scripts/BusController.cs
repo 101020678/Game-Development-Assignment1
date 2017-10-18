@@ -26,7 +26,9 @@ public class BusController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!GameController.gameOverStatus) {_currentPosition = _transform.position;
+		if (!GameController.gameOverStatus) {
+			//key handler events
+			_currentPosition = _transform.position;
 			if (Input.GetKey (KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)) {
 				_currentPosition += new Vector2 (0, speed);
 			}
@@ -47,6 +49,7 @@ public class BusController : MonoBehaviour {
 		}
 
 	}
+	//Keep the bus inside the bounds
 	void CheckBounds(){
 		if (_currentPosition.x < leftX)
 			_currentPosition.x = leftX;

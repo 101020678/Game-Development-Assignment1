@@ -140,7 +140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 326, y: -150}
+  m_AnchoredPosition: {x: 223, y: -136.87}
   m_SizeDelta: {x: 154.05, y: 22.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1517511
@@ -294,6 +294,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70d7c626381342678f2866acc7b146d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  car: {fileID: 1666011129104894, guid: 3650aa75dc1c148adb9d82c317ca2f4f, type: 2}
+  lifeLabel: {fileID: 1425277952}
+  scoreLabel: {fileID: 1953010576}
+  gameOverLabel: {fileID: 1887894796}
+  highScoreLabel: {fileID: 1517511}
+  resetBtn: {fileID: 1448066244}
 --- !u!1 &558685830
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +373,7 @@ GameObject:
   - component: {fileID: 602388789}
   - component: {fileID: 602388791}
   - component: {fileID: 602388792}
+  - component: {fileID: 602388793}
   m_Layer: 0
   m_Name: student
   m_TagString: student
@@ -423,7 +430,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 602388788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 370, y: 133.5, z: 0}
+  m_LocalPosition: {x: -872, y: 272, z: 0}
   m_LocalScale: {x: 57.153236, y: 57.153236, z: 1.7860386}
   m_Children: []
   m_Father: {fileID: 0}
@@ -613,6 +620,21 @@ PolygonCollider2D:
       - {x: 0.36499998, y: -0.13}
       - {x: 0.325, y: -0.19999999}
       - {x: 0.33499998, y: -0.19999999}
+--- !u!114 &602388793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602388788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f23bcb904844acea6b80393613b2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  startX: 869
+  endX: -872
+  currentRndY: 7
 --- !u!1 &891699013
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978b26c1123f647c3b3a8ae94e344e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameContoler: {fileID: 549683035}
 --- !u!61 &891699018
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -994,7 +1017,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1448066245}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 549683035}
+        m_MethodName: ResetBtnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1448066245
@@ -1058,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0045fcd33d34b40cfa0c86b296d788d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   startX: 244
   endX: -244
 --- !u!212 &1494180491
@@ -1125,11 +1159,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4329885047517868, guid: 3650aa75dc1c148adb9d82c317ca2f4f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 735
+      value: 502
       objectReference: {fileID: 0}
     - target: {fileID: 4329885047517868, guid: 3650aa75dc1c148adb9d82c317ca2f4f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -238
+      value: -234
       objectReference: {fileID: 0}
     - target: {fileID: 4329885047517868, guid: 3650aa75dc1c148adb9d82c317ca2f4f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1163,12 +1197,12 @@ Prefab:
     - target: {fileID: 114521376509676188, guid: 3650aa75dc1c148adb9d82c317ca2f4f,
         type: 2}
       propertyPath: minXspeed
-      value: 14
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114521376509676188, guid: 3650aa75dc1c148adb9d82c317ca2f4f,
         type: 2}
       propertyPath: maxXspeed
-      value: 22
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3650aa75dc1c148adb9d82c317ca2f4f, type: 2}
