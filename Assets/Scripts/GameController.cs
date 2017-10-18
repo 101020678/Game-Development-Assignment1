@@ -19,11 +19,16 @@ public class GameController : MonoBehaviour {
 	private int carCounter=0;
 	private int _life = 3;
 	private int _score = 0;
+	private int _highScore =0;
 	public int Score{
 		get{ return _score;}
 		set
 		{ _score = value;
 			scoreLabel.text = "Score: " + _score;
+			if (_score > _highScore) {
+				_highScore = _score;
+			}
+			highScoreLabel.text = "Highest Score: " +  _highScore;
 		}
 	}
 	public int Life{
