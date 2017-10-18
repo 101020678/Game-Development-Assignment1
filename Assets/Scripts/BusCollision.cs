@@ -26,8 +26,8 @@ public class BusCollision : MonoBehaviour {
 			gameContoler.Life--;
 		} else if (other.gameObject.tag.Equals ("student")) {
 			Debug.Log ("Collision Detected");
-			other.gameObject.GetComponent<CarController> ().PlaySound ();
-
+			other.gameObject.GetComponent<StudentController> ().PlaySound ();
+			other.gameObject.GetComponent<StudentController> ().Reset ();
 			gameContoler.Score += 100;
 		}
 	}

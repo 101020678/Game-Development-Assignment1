@@ -23,6 +23,12 @@ public class CarController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(_currenPosition.y >225){
+			_currenSpeed.y = 0;
+		}
+		else if (_currenPosition.y < -234){
+			_currenSpeed.y = 0;
+		}
 		_currenPosition = transform.position;
 		_currenPosition -= _currenSpeed;
 		_trasnsform.position = _currenPosition;

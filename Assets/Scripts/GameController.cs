@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
 	[SerializeField]
+	GameObject car;
+	[SerializeField]
 	Text lifeLabel;
 	[SerializeField]
 	Text scoreLabel;
@@ -14,6 +16,7 @@ public class GameController : MonoBehaviour {
 	Text highScoreLabel;
 	[SerializeField]
 	Button resetBtn;
+	private int carCounter=0;
 	private int _life = 3;
 	private int _score = 0;
 	public int Score{
@@ -42,7 +45,7 @@ public class GameController : MonoBehaviour {
 		resetBtn.gameObject.SetActive (false);
 		lifeLabel.gameObject.SetActive (true);
 		scoreLabel.gameObject.SetActive (true);
-		StartCoroutine ("AddEnemy");
+		StartCoroutine ("AddCar");
 	}
 	public void gameOver(){
 		gameOverLabel.gameObject.SetActive (true);
@@ -54,6 +57,16 @@ public class GameController : MonoBehaviour {
 	}
 	public void ResetBtnClick(){
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+	}
+	private IEnumerator AddCar(){
+		if (carCounter < 6) {
+			int time = 10;
+			yield return new WaitForSeconds ((float) time);
+			Instantiate (car);
+			StartCoroutine ("AddCar");
+			carCounter++;
+		} 
+
 	}
 	// Use this for initialization
 	void Start () {

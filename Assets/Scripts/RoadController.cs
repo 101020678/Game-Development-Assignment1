@@ -10,11 +10,6 @@ public class RoadController : MonoBehaviour {
 	private float startX;
 	[SerializeField]
 	private float endX;
-
-
-
-
-
 	//Private variables 
 	private Transform _transform;
 	private Vector2 _currentPosition;
